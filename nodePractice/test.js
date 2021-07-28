@@ -1,4 +1,4 @@
-const url = new URL(
-  "http://www.gilbut.co.kr/?page=3&limit=10&category=nodejs&category=javascript"
-);
-console.log(typeof url);
+const babo = { kichang: "genious", kisung: "babo", kiwon: "lol troll" };
+
+const { kisung } = babo;
+console.log(kisung);
