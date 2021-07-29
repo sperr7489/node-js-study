@@ -1,0 +1,29 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "나는 최고가 될거야",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sperr7489/node-js-study.git"
+  },
+  "author": "codeQtech",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sperr7489/node-js-study/issues"
+  },
+  "homepage": "https://github.com/sperr7489/node-js-study#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
