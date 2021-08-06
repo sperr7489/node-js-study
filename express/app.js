@@ -30,6 +30,8 @@ app.use(
   })
 );
 app.set("port", process.env.PORT || 3000);
+app.set("view engine", "html");
+
 // app.get("/", (req, res) => {
 //   //   res.send("hello, express");
 //   res.sendFile(path.join(__dirname, "/index.html"));
@@ -58,14 +60,17 @@ app.use("/", indexRouter);
 app.use("/user", userRouter);
 
 app.use((req, res, next) => {
-  res.status(404).send("not found");
-});
+  const error = new Error(`${req.method} ${req.url} 라우터가 없습니다.`);
+  error.status = 404;
+  next(error);
+}); //404 상태에 대한 메시지를 보내는 것이다.
 
 app.use((err, req, res, next) => {
-  console.error(err);
-  res.status(500).send(err.message);
-});
-
+  res.locals.message = err.message;
+  res.locals.error = process.env.NODE_ENV !== "production" ? err : {};
+  res.status(err.status || 500);
+  res.render("error");
+}); //에러 처리는 반드시 인자가 4개여야만 한다.
 app.listen(app.get("port"), () => {
   console.log(app.get("port"), "번 포트에서 대기중");
 });
